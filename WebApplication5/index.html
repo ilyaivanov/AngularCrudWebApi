@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="Content/bootstrap.css"/>
+</head>
+<body ng-app="app" ng-controller="ApplicationController">
+    <div class="row">
+
+        <div class="col-sm-6" ng-controller="BooksController as vm">
+            <div ng-repeat="book in vm.books">
+                <span>{{book.Id}}</span>
+                <input type="text" ng-model="book.Name" />
+                <input type="text" ng-model="book.Author" />
+                <button ng-click="vm.update(book)">Update</button>
+                <button ng-click="book.$remove()">Delete</button>
+            </div>
+            <button ng-click="vm.create()">Create</button>
+        </div>
+        <div class="col-sm-6" ng-controller="StudentsController as vm">
+            <div ng-repeat="s in vm.students">
+                <span>{{s.Id}}</span>
+                <input type="text" ng-model="s.Name" />
+                <input type="text" ng-model="s.Age" />
+                <button ng-click="vm.update(s)">Update</button>
+                <button ng-click="s.$remove()">Delete</button>
+            </div>
+            <button ng-click="vm.create()">Create</button>
+        </div>
+    </div>
+
+    <div ng-if="f.studentsLoaded && f.booksLoaded">
+        all items have been loaded
+    </div>
+
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/ApplicationController.js"></script>
+    <script src="app/book.service.js"></script>
+    <script src="app/books.controller.js"></script>
+    <script src="app/student.service.js"></script>
+    <script src="app/students.controller.js"></script>
+
+
+</body>
+</html>
